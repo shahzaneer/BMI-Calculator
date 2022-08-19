@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class BMICard extends StatelessWidget {
-   BMICard({Key? key, required this.color, this.childCard})
+  const BMICard({Key? key, required this.color, this.childCard})
       : super(key: key);
 
   final Color color;
