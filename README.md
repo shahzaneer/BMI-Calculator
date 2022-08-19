@@ -1,6 +1,6 @@
 # BMI Calculator
 
-## A simple App for Cslculating the Body Mass Index
+## A simple App for Calculating the Body Mass Index
 
 ![InputScreen](/mainScreen.jpeg)
 ![ResultScreen](/resultScreen.jpeg)
