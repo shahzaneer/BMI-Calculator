@@ -3,7 +3,7 @@ import 'package:bmi_calculator/Screens/input_.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp( MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,15 +18,15 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: backgroundColor,
         accentColor: Colors.pink,
         sliderTheme: SliderTheme.of(context).copyWith(
-          thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12.0),
-          thumbColor: Color.fromARGB(255, 233, 30, 99),
-          overlayColor: Color.fromARGB(29, 233, 30, 99),
+          thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 12.0),
+          thumbColor: const Color.fromARGB(255, 233, 30, 99),
+          overlayColor: const Color.fromARGB(29, 233, 30, 99),
           activeTrackColor: Colors.white,
           inactiveTrackColor: grey,
-          overlayShape: RoundSliderOverlayShape(overlayRadius: 30.0),
+          overlayShape: const RoundSliderOverlayShape(overlayRadius: 30.0),
         ),
       ),
-      home: Input(),
+      home: const Input(),
     );
   }
 }

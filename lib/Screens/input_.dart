@@ -85,13 +85,13 @@ class _InputState extends State<Input> {
           ),
           Expanded(
             child: BMICard(
-              color: Color(0xff1D1E33),
+              color: const Color(0xff1D1E33),
               childCard: Column(children: [
                 Text(
                   "Height".toUpperCase(),
-                  style: TextStyle(fontSize: 29.0, color: grey),
+                  style: const TextStyle(fontSize: 29.0, color: grey),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15.0,
                 ),
                 Row(
@@ -101,15 +101,15 @@ class _InputState extends State<Input> {
                   children: [
                     Text(
                       cal.height.toString(),
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 50.0,
                         fontWeight: FontWeight.w900,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 2.0,
                     ),
-                    Text(
+                    const Text(
                       "cm",
                       style: TextStyle(color: grey),
                     )
@@ -133,20 +133,20 @@ class _InputState extends State<Input> {
               children: [
                 Expanded(
                   child: BMICard(
-                    color: Color(0xff1D1E33),
+                    color: const Color(0xff1D1E33),
                     childCard: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           "Weight".toUpperCase(),
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: grey,
                             fontSize: 30.0,
                           ),
                         ),
                         Text(
                           cal.weight.toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 50.0,
                             fontWeight: FontWeight.w900,
@@ -166,11 +166,11 @@ class _InputState extends State<Input> {
                                 fillColor: inActiveCardColor,
                                 shape:
                                     const CircleBorder(side: BorderSide.none),
-                                child: Icon(FontAwesomeIcons.minus),
-                                constraints: BoxConstraints.tightFor(
+                                constraints: const BoxConstraints.tightFor(
                                   width: 50.0,
                                   height: 50.0,
                                 ),
+                                child: const Icon(FontAwesomeIcons.minus),
                               ),
                             ),
                             Expanded(
@@ -181,12 +181,13 @@ class _InputState extends State<Input> {
                                   });
                                 },
                                 fillColor: inActiveCardColor,
-                                shape: CircleBorder(side: BorderSide.none),
-                                child: Icon(FontAwesomeIcons.add),
-                                constraints: BoxConstraints.tightFor(
+                                shape:
+                                    const CircleBorder(side: BorderSide.none),
+                                constraints: const BoxConstraints.tightFor(
                                   width: 50.0,
                                   height: 50.0,
                                 ),
+                                child: const Icon(FontAwesomeIcons.add),
                               ),
                             ),
                           ],
@@ -197,20 +198,20 @@ class _InputState extends State<Input> {
                 ),
                 Expanded(
                   child: BMICard(
-                    color: Color(0xff1D1E33),
+                    color: const Color(0xff1D1E33),
                     childCard: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           "Age".toUpperCase(),
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: grey,
                             fontSize: 30.0,
                           ),
                         ),
                         Text(
                           cal.age.toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 50.0,
                             fontWeight: FontWeight.w900,
@@ -227,13 +228,14 @@ class _InputState extends State<Input> {
                                     }
                                   });
                                 },
-                                child: Icon(FontAwesomeIcons.minus),
                                 fillColor: inActiveCardColor,
-                                shape: CircleBorder(side: BorderSide.none),
-                                constraints: BoxConstraints.tightFor(
+                                shape:
+                                    const CircleBorder(side: BorderSide.none),
+                                constraints: const BoxConstraints.tightFor(
                                   width: 50.0,
                                   height: 50.0,
                                 ),
+                                child: const Icon(FontAwesomeIcons.minus),
                               ),
                             ),
                             Expanded(
@@ -243,13 +245,14 @@ class _InputState extends State<Input> {
                                     cal.age++;
                                   });
                                 },
-                                child: Icon(FontAwesomeIcons.add),
                                 fillColor: inActiveCardColor,
-                                shape: CircleBorder(side: BorderSide.none),
-                                constraints: BoxConstraints.tightFor(
+                                shape:
+                                    const CircleBorder(side: BorderSide.none),
+                                constraints: const BoxConstraints.tightFor(
                                   width: 50.0,
                                   height: 50.0,
                                 ),
+                                child: const Icon(FontAwesomeIcons.add),
                               ),
                             ),
                           ],
@@ -268,7 +271,7 @@ class _InputState extends State<Input> {
                   context: context,
                   title: "Complete Info",
                   desc: "Please Specify the Gender First",
-                  style: AlertStyle(
+                  style: const AlertStyle(
                       animationType: AnimationType.grow,
                       backgroundColor: inActiveCardColor,
                       titleStyle: TextStyle(color: Colors.white),
@@ -293,7 +296,7 @@ class _InputState extends State<Input> {
               width: double.infinity,
               color: buttonColor,
               margin: const EdgeInsets.only(top: 10.0),
-              child: Center(
+              child: const Center(
                 child: Text(
                   "Calculate your BMI",
                   style: TextStyle(fontSize: 27.0),
