@@ -1,11 +1,11 @@
+import 'package:bmi_calculator/Components/height_slider_.dart';
+import 'package:bmi_calculator/Components/value_box_.dart';
 import 'package:bmi_calculator/Constants/constants_.dart';
 import 'package:bmi_calculator/Components/gender_selection_.dart';
 import 'package:bmi_calculator/Screens/result_.dart';
 import 'package:bmi_calculator/backendLogic/calculations.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
-import '../Components/card_.dart';
 
 enum Gender {
   male,
@@ -39,228 +39,103 @@ class _InputState extends State<Input> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: GenderSelection(
+                    onPress: () {
                       setState(() {
                         selectedGen = Gender.male;
                       });
                     },
-                    onDoubleTap: () {
+                    onDoublePress: () {
                       setState(() {
                         selectedGen = null;
                       });
                     },
-                    child: GenderSelection(
-                      icon: Icons.male,
-                      text: "Male",
-                      colour: (selectedGen == Gender.male)
-                          ? activeCardColor
-                          : inActiveCardColor,
-                    ),
+                    icon: Icons.male,
+                    colour: selectedGen == Gender.male
+                        ? activeCardColor
+                        : inActiveCardColor,
+                    text: "Male",
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
+                  child: GenderSelection(
+                    onPress: () {
                       setState(() {
                         selectedGen = Gender.female;
                       });
                     },
-                    onDoubleTap: () {
+                    onDoublePress: () {
                       setState(() {
                         selectedGen = null;
                       });
                     },
-                    child: GenderSelection(
-                      icon: Icons.female,
-                      text: "Female",
-                      colour: (selectedGen == Gender.female)
-                          ? activeCardColor
-                          : inActiveCardColor,
-                    ),
+                    icon: Icons.female,
+                    colour: selectedGen == Gender.female
+                        ? activeCardColor
+                        : inActiveCardColor,
+                    text: "Female",
                   ),
                 ),
               ],
             ),
           ),
           Expanded(
-            child: BMICard(
-              color: const Color(0xff1D1E33),
-              childCard: Column(children: [
-                Text(
-                  "Height".toUpperCase(),
-                  style: const TextStyle(fontSize: 29.0, color: grey),
-                ),
-                const SizedBox(
-                  height: 15.0,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.baseline,
-                  textBaseline: TextBaseline.alphabetic,
-                  children: [
-                    Text(
-                      cal.height.toString(),
-                      style: const TextStyle(
-                        fontSize: 50.0,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 2.0,
-                    ),
-                    const Text(
-                      "cm",
-                      style: TextStyle(color: grey),
-                    )
-                  ],
-                ),
-                Slider(
-                  value: cal.height.toDouble(),
-                  onChanged: (double newValue) {
-                    setState(() {
-                      cal.height = newValue.round();
-                    });
-                  },
-                  min: 180.0,
-                  max: 220.0,
-                ),
-              ]),
+            child: HeightSlider(
+              height: cal.height.toDouble(),
+              onchanged: (double value) {
+                setState(() {
+                  cal.height = value.toInt();
+                });
+              },
             ),
           ),
           Expanded(
             child: Row(
               children: [
                 Expanded(
-                  child: BMICard(
-                    color: const Color(0xff1D1E33),
-                    childCard: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Weight".toUpperCase(),
-                          style: const TextStyle(
-                            color: grey,
-                            fontSize: 30.0,
-                          ),
-                        ),
-                        Text(
-                          cal.weight.toString(),
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 50.0,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: RawMaterialButton(
-                                onPressed: () {
-                                  setState(() {
-                                    if (cal.weight >= 0) {
-                                      cal.weight--;
-                                    }
-                                  });
-                                },
-                                fillColor: inActiveCardColor,
-                                shape:
-                                    const CircleBorder(side: BorderSide.none),
-                                constraints: const BoxConstraints.tightFor(
-                                  width: 50.0,
-                                  height: 50.0,
-                                ),
-                                child: const Icon(FontAwesomeIcons.minus),
-                              ),
-                            ),
-                            Expanded(
-                              child: RawMaterialButton(
-                                onPressed: () {
-                                  setState(() {
-                                    cal.weight++;
-                                  });
-                                },
-                                fillColor: inActiveCardColor,
-                                shape:
-                                    const CircleBorder(side: BorderSide.none),
-                                constraints: const BoxConstraints.tightFor(
-                                  width: 50.0,
-                                  height: 50.0,
-                                ),
-                                child: const Icon(FontAwesomeIcons.add),
-                              ),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
+                  child: ValueBox(
+                    name: "Weight".toUpperCase(),
+                    value: cal.weight.toDouble(),
+                    increment: () {
+                      setState(
+                        () {
+                          cal.weight++;
+                        },
+                      );
+                    },
+                    decrement: () {
+                      setState(
+                        () {
+                          if (cal.weight >= 0) {
+                            cal.weight++;
+                          }
+                        },
+                      );
+                    },
                   ),
                 ),
                 Expanded(
-                  child: BMICard(
-                    color: const Color(0xff1D1E33),
-                    childCard: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Age".toUpperCase(),
-                          style: const TextStyle(
-                            color: grey,
-                            fontSize: 30.0,
-                          ),
-                        ),
-                        Text(
-                          cal.age.toString(),
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 50.0,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: RawMaterialButton(
-                                onPressed: () {
-                                  setState(() {
-                                    if (cal.age >= 0) {
-                                      cal.age--;
-                                    }
-                                  });
-                                },
-                                fillColor: inActiveCardColor,
-                                shape:
-                                    const CircleBorder(side: BorderSide.none),
-                                constraints: const BoxConstraints.tightFor(
-                                  width: 50.0,
-                                  height: 50.0,
-                                ),
-                                child: const Icon(FontAwesomeIcons.minus),
-                              ),
-                            ),
-                            Expanded(
-                              child: RawMaterialButton(
-                                onPressed: () {
-                                  setState(() {
-                                    cal.age++;
-                                  });
-                                },
-                                fillColor: inActiveCardColor,
-                                shape:
-                                    const CircleBorder(side: BorderSide.none),
-                                constraints: const BoxConstraints.tightFor(
-                                  width: 50.0,
-                                  height: 50.0,
-                                ),
-                                child: const Icon(FontAwesomeIcons.add),
-                              ),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
+                  child: ValueBox(
+                    name: "Age".toUpperCase(),
+                    value: cal.age.toDouble(),
+                    increment: () {
+                      setState(
+                        () {
+                          cal.age++;
+                        },
+                      );
+                    },
+                    decrement: () {
+                      setState(
+                        () {
+                          if (cal.age >= 0) {
+                            cal.age++;
+                          }
+                        },
+                      );
+                    },
                   ),
-                ),
+                )
               ],
             ),
           ),
@@ -303,7 +178,7 @@ class _InputState extends State<Input> {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
