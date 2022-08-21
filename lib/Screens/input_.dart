@@ -89,53 +89,55 @@ class _InputState extends State<Input> {
               },
             ),
           ),
-          Row(
-            children: [
-              Expanded(
-                child: ValueBox(
-                  name: "Weight".toUpperCase(),
-                  value: cal.weight.toDouble(),
-                  increment: () {
-                    setState(
-                      () {
-                        cal.weight++;
-                      },
-                    );
-                  },
-                  decrement: () {
-                    setState(
-                      () {
-                        if (cal.weight >= 0) {
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: ValueBox(
+                    name: "Weight".toUpperCase(),
+                    value: cal.weight.toDouble(),
+                    increment: () {
+                      setState(
+                        () {
                           cal.weight++;
-                        }
-                      },
-                    );
-                  },
+                        },
+                      );
+                    },
+                    decrement: () {
+                      setState(
+                        () {
+                          if (cal.weight >= 0) {
+                            cal.weight++;
+                          }
+                        },
+                      );
+                    },
+                  ),
                 ),
-              ),
-              Expanded(
-                child: ValueBox(
-                  name: "Age".toUpperCase(),
-                  value: cal.age.toDouble(),
-                  increment: () {
-                    setState(
-                      () {
-                        cal.age++;
-                      },
-                    );
-                  },
-                  decrement: () {
-                    setState(
-                      () {
-                        if (cal.age >= 0) {
+                Expanded(
+                  child: ValueBox(
+                    name: "Age".toUpperCase(),
+                    value: cal.age.toDouble(),
+                    increment: () {
+                      setState(
+                        () {
                           cal.age++;
-                        }
-                      },
-                    );
-                  },
-                ),
-              )
-            ],
+                        },
+                      );
+                    },
+                    decrement: () {
+                      setState(
+                        () {
+                          if (cal.age >= 0) {
+                            cal.age++;
+                          }
+                        },
+                      );
+                    },
+                  ),
+                )
+              ],
+            ),
           ),
           GestureDetector(
             onTap: () {

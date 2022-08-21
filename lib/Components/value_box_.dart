@@ -40,35 +40,33 @@ class ValueBox extends StatelessWidget {
               fontWeight: FontWeight.w900,
             ),
           ),
-          Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                  child: RawMaterialButton(
-                    onPressed: decrement,
-                    fillColor: inActiveCardColor,
-                    shape: const CircleBorder(side: BorderSide.none),
-                    constraints: const BoxConstraints.tightFor(
-                      width: 50.0,
-                      height: 50.0,
-                    ),
-                    child: const Icon(FontAwesomeIcons.minus),
+          Row(
+            children: [
+              Expanded(
+                child: RawMaterialButton(
+                  onPressed: decrement,
+                  fillColor: inActiveCardColor,
+                  shape: const CircleBorder(side: BorderSide.none),
+                  constraints: const BoxConstraints.tightFor(
+                    width: 50.0,
+                    height: 50.0,
                   ),
+                  child: const Icon(FontAwesomeIcons.minus),
                 ),
-                Expanded(
-                  child: RawMaterialButton(
-                    onPressed: decrement,
-                    fillColor: inActiveCardColor,
-                    shape: const CircleBorder(side: BorderSide.none),
-                    constraints: const BoxConstraints.tightFor(
-                      width: 50.0,
-                      height: 50.0,
-                    ),
-                    child: const Icon(FontAwesomeIcons.add),
+              ),
+              Expanded(
+                child: RawMaterialButton(
+                  onPressed: decrement,
+                  fillColor: inActiveCardColor,
+                  shape: const CircleBorder(side: BorderSide.none),
+                  constraints: const BoxConstraints.tightFor(
+                    width: 50.0,
+                    height: 50.0,
                   ),
+                  child: const Icon(FontAwesomeIcons.add),
                 ),
-              ],
-            ),
+              ),
+            ],
           )
         ],
       ),
