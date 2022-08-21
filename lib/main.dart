@@ -30,3 +30,10 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+
+
+
+// MAIN FILE -> 
+// 1. to Set themes
+// 2.  RunApp(Entry point widget to the APP);

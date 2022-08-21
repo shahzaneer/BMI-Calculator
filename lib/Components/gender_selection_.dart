@@ -5,19 +5,25 @@ class GenderSelection extends StatelessWidget {
   final IconData icon;
   final String text;
   final Color colour;
-  // final Function onPress;
+  final Function()? onPress;
+  final Function()? onDoublePress;
 
   const GenderSelection({
     Key? key,
     required this.icon,
     required this.text,
     required this.colour,
-    // required this.onPress,
+    required this.onPress,
+    required this.onDoublePress,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BMICard(
+    return 
+    GestureDetector(
+      onTap: onPress,
+      onDoubleTap: onDoublePress,
+      child: BMICard(
       color: colour,
       childCard: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -38,6 +44,10 @@ class GenderSelection extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ),);
   }
 }
+
+
+
+
